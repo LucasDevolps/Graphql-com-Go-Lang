@@ -1,27 +1,23 @@
-inputs = dados de entrada.
+# ðŸ“˜ Conceitos BÃ¡sicos de GraphQL
 
-type = modelo ou classes.
+## ðŸ”¹ input
+Representa dados de entrada utilizados em mutations ou queries.  
+Normalmente define a estrutura esperada para criaÃ§Ã£o ou atualizaÃ§Ã£o de dados.
 
-mutation = onde adiciona ou muda dados | Qualquer tipo de mudança que faça alteração no modelo existente.
+> Equivalente a um DTO de request.
 
-query = comando pra execução do graphql | Todos os tipos de consultas solicitadas.
+---
 
+## ðŸ”¹ type
+Define o modelo/estrutura de dados retornado pela API.
 
--------------------------
+> Equivalente a uma classe de resposta ou entidade exposta no schema.
 
-go run github.com/99designs/gqlgen init - Inicia o projeto
-go run github.com/99designs/gqlgen generate - Atualiza o projeto com os dados alterados
+Exemplo:
 
--------------------------
-
-Exemplo de chamada.:
-
-query nomeQualquerParaQuery
-{
-	categories - nome do objeto que quero consultar
-    {
-        id - parametros que quero receber 
-        name - parametros que quero receber 
-        description - parametros que quero receber 
-    }
+```graphql
+type Category {
+  id: ID!
+  name: String!
+  description: String
 }
