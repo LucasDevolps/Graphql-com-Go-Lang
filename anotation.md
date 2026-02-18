@@ -24,8 +24,7 @@ type Category {
 ```
 ---
 
-##🔹 mutation
-
+## 🔹 Mutation
 Responsável por criar, atualizar ou remover dados.
 
 Qualquer operação que altere o estado da aplicação deve ser feita via mutation.
