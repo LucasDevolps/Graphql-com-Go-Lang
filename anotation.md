@@ -67,3 +67,23 @@ Gerar/Atualizar código após alterações no schema
 ```bash
 go run github.com/99designs/gqlgen generate
 ```
+
+
+## 📌 Exemplo de Query
+
+```graphql
+query buscarCategorias {
+  categories {
+    id
+    name
+    description
+  }
+}
+```
+
+### Explicação:
+
+- `buscarCategorias` → Nome da query (opcional, mas recomendado)
+- `categories` → Campo definido no schema que será consultado
+- `id`, `name`, `description` → Campos que desejo receber na resposta
+
