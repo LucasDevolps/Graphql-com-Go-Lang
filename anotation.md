@@ -44,3 +44,11 @@ mutation {
   }
 }
 ```
+---
+
+## 🔹 Query
+Utilizada para consultar dados.
+
+Toda operação que apenas busca informações deve ser feita via query.
+
+> Equivalente a GET no REST.
