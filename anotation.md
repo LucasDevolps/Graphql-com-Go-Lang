@@ -1,6 +1,6 @@
 # 📘 Conceitos Básicos de GraphQL
 
-## 🔹 input
+## 🔹 Input
 Representa dados de entrada utilizados em mutations ou queries.  
 Normalmente define a estrutura esperada para criação ou atualização de dados.
 
@@ -8,7 +8,7 @@ Normalmente define a estrutura esperada para criação ou atualização de dados
 
 ---
 
-## 🔹 type
+## 🔹 Type
 Define o modelo/estrutura de dados retornado pela API.
 
 > Equivalente a uma classe de resposta ou entidade exposta no schema.
@@ -21,3 +21,26 @@ type Category {
   name: String!
   description: String
 }
+```
+
+##🔹 mutation
+
+Responsável por criar, atualizar ou remover dados.
+
+Qualquer operação que altere o estado da aplicação deve ser feita via mutation.
+
+> Equivalente a POST, PUT, PATCH ou DELETE no REST.
+
+Exemplo:
+
+```graphql
+mutation {
+  createCategory(input: {
+    name: "Nova Categoria",
+    description: "Descrição"
+  }) {
+    id
+    name
+  }
+}
+```
