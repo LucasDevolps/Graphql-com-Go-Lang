@@ -22,6 +22,7 @@ type Category {
   description: String
 }
 ```
+---
 
 ##🔹 mutation
 
