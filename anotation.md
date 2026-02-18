@@ -52,3 +52,18 @@ Utilizada para consultar dados.
 Toda operação que apenas busca informações deve ser feita via query.
 
 > Equivalente a GET no REST.
+
+---
+
+## 🚀 Comandos com gqlgen (Go)
+Inicializar projeto GraphQL
+
+```bash
+go run github.com/99designs/gqlgen init
+```
+
+Gerar/Atualizar código após alterações no schema
+
+```bash
+go run github.com/99designs/gqlgen generate
+```
