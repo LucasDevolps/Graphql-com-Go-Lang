@@ -1,6 +1,7 @@
 package main
 
 import (
+	"database/sql"
 	"log"
 	"net/http"
 	"os"
@@ -11,18 +12,31 @@ import (
 	"github.com/99designs/gqlgen/graphql/handler/transport"
 	"github.com/99designs/gqlgen/graphql/playground"
 	"github.com/devfullcycle/13-GraphQL/graph"
+	"github.com/devfullcycle/13-GraphQL/internal/database"
 	"github.com/vektah/gqlparser/v2/ast"
+	_ "modernc.org/sqlite"
 )
 
 const defaultPort = "8080"
 
 func main() {
+
+	db, err := sql.Open("sqlite", "database.db")
+	if err != nil {
+		log.Fatalf("Failed to connect to database: %v", err)
+	}
+	defer db.Close()
+
+	categoryDb := database.NewCategory(db)
+
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = defaultPort
 	}
 
-	srv := handler.New(graph.NewExecutableSchema(graph.Config{Resolvers: &graph.Resolver{}}))
+	srv := handler.New(graph.NewExecutableSchema(graph.Config{Resolvers: &graph.Resolver{
+		CategoryDb: categoryDb,
+	}}))
 
 	srv.AddTransport(transport.Options{})
 	srv.AddTransport(transport.GET{})
