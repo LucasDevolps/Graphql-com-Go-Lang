@@ -7,8 +7,8 @@ tool github.com/99designs/gqlgen
 require (
 	github.com/99designs/gqlgen v0.17.86
 	github.com/google/uuid v1.6.0
-	github.com/mattn/go-sqlite3 v1.14.34
 	github.com/vektah/gqlparser/v2 v2.5.31
+	modernc.org/sqlite v1.46.1
 )
 
 require (
@@ -32,5 +32,4 @@ require (
 	modernc.org/libc v1.67.6 // indirect
 	modernc.org/mathutil v1.7.1 // indirect
 	modernc.org/memory v1.11.0 // indirect
-	modernc.org/sqlite v1.46.1 // indirect
 )
