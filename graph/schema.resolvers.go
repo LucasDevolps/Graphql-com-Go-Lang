@@ -7,14 +7,25 @@ package graph
 
 import (
 	"context"
-	"fmt"
 
 	"github.com/devfullcycle/13-GraphQL/graph/model"
 )
 
 // Courses is the resolver for the courses field.
 func (r *categoryResolver) Courses(ctx context.Context, obj *model.Category) ([]*model.Course, error) {
-	panic(fmt.Errorf("not implemented: Courses - courses"))
+	courses, err := r.CourseDb.FindByCategoryID(obj.ID)
+	if err != nil {
+		return nil, err
+	}
+	var coursesModel []*model.Course
+	for _, course := range courses {
+		coursesModel = append(coursesModel, &model.Course{
+			ID:          course.ID,
+			Name:        course.Name,
+			Description: &course.Description,
+		})
+	}
+	return coursesModel, nil
 }
 
 // CreateCategory is the resolver for the createCategory field.
